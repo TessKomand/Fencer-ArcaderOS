@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class AttackIndicatorApper : MonoBehaviour {
     public GameObject AttacAttackIndicatorUp;
@@ -39,12 +40,18 @@ public class AttackIndicatorApper : MonoBehaviour {
         if (SaberControl.SaberMiddle.activeSelf) pos = 2;
         if (SaberControl.SaberDown.activeSelf) pos = 3;
 
-
+        StartCoroutine(AttackHide());
 
         if (pos == posAttack) {
             EnemyStamina.licznikStaminaEnemy--;
         } else {
             EnemyStamina.licznikStaminaEnemy++;
         }
+    }
+
+
+    IEnumerator AttackHide() {
+        AttackIndicatorPositon(-1);
+        yield return new WaitForSeconds(0.5f);
     }
 }
