@@ -9,8 +9,8 @@ public class AttackIndicatorApper : MonoBehaviour {
     public EnemyStamina EnemyStamina;
     void Start() {
         AttackIndicatorPositon(-1);
-        InvokeRepeating("RandomAttack", 1f, 4f);
-        InvokeRepeating("Attack", 2.5f, 4f);
+            InvokeRepeating("RandomAttack", 1f, 4f);
+            InvokeRepeating("Attack", 2.5f, 4f);
     }
 
 
@@ -25,11 +25,13 @@ public class AttackIndicatorApper : MonoBehaviour {
     }
 
     void RandomAttack() {
-        int pos = Random.Range(1, 4);
-        AttackIndicatorPositon(pos);
-    }
+        if (EnemyStamina.licznikStaminaEnemy > 0) {
+            int pos = Random.Range(1, 4);
+            AttackIndicatorPositon(pos);
+        }
+        }
 
-    void Attack() {
+        void Attack() {
         int posAttack = 0;
         if (AttacAttackIndicatorUp.activeSelf) posAttack = 1;
         if (AttacAttackIndicatorMiddle.activeSelf) posAttack = 2;
