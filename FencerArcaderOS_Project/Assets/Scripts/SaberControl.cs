@@ -7,8 +7,10 @@ public class SaberControl : MonoBehaviour {
     public GameObject SaberUp;
     public GameObject SaberMiddle;
     public GameObject SaberDown;
+    public GameObject SaberWide;
     public EnemyStamina EnemyStamina;
     int HitDone = 0;
+    bool canAttack = true;
     void Start() {
         SaberPositon(2);
     }
@@ -18,8 +20,9 @@ public class SaberControl : MonoBehaviour {
         if (Keyboard.current.wKey.wasPressedThisFrame) SaberPositon(1);
         if (Keyboard.current.dKey.wasPressedThisFrame) SaberPositon(2);
         if (Keyboard.current.sKey.wasPressedThisFrame) SaberPositon(3);
-        if (EnemyStamina.licznikStaminaEnemy <= 0) {
-            if (Keyboard.current.fKey.wasPressedThisFrame) StartCoroutine(PlayerAttackMove());
+        if (Keyboard.current.fKey.wasPressedThisFrame) SaberPositon(4);
+        if (EnemyStamina.licznikStaminaEnemy <= 0 && canAttack == true) {
+            if (Keyboard.current.gKey.wasPressedThisFrame) StartCoroutine(PlayerAttackMove());
         }
     }
 
@@ -27,9 +30,16 @@ public class SaberControl : MonoBehaviour {
         SaberUp.SetActive(pos == 1);
         SaberMiddle.SetActive(pos == 2);
         SaberDown.SetActive(pos == 3);
+        SaberWide.SetActive(pos == 4);
+        if (pos != 4) {
+            canAttack = true;
+        } else {
+            canAttack = false;
+        }
+
     }
 
-    
+
 
 
     IEnumerator PlayerAttackMove() {

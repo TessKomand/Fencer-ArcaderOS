@@ -678,7 +678,7 @@ MonoBehaviour:
   SaberUp: {fileID: 624527850}
   SaberMiddle: {fileID: 1035858577}
   SaberDown: {fileID: 2011728201}
-  AttackIndicatorApper: {fileID: 0}
+  EnemyStamina: {fileID: 1203019728}
 --- !u!212 &1027406757
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -762,6 +762,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1035858579}
   - component: {fileID: 1035858578}
+  - component: {fileID: 1035858580}
   m_Layer: 3
   m_Name: SaberMiddle
   m_TagString: Untagged
@@ -839,6 +840,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1027406758}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1035858580
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035858577}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7578d1de617c4bc4db39d42997c4253a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1118497497
 GameObject:
   m_ObjectHideFlags: 0
